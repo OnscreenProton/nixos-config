@@ -1,0 +1,3 @@
+[submodule "home-manager/programs/emacs"]
+	path = home-manager/programs/emacs
+	url = https://github.com/onscreenproton/emacs-config
