@@ -1,6 +1,8 @@
 {
   imports = [
-    #./firefox
-  	./zsh
-  ]
+    ./emacs
+    ./gnome
+    #./plasma
+    ./zsh
+  ];
 }

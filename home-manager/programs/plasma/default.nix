@@ -28,8 +28,28 @@
         "Switch Window Up" = "Meta+K";
       };
     };
+    configFile = {
+      kwinrc = {
+        plugins = {
+          "fallapartEnabled" = true;
+          "wobblywindowsEnabled" = true;
+        };
 
-    # A low-level setting:
-    configFile."baloofilerc"."Basic Settings"."Indexing-Enabled" = false;
+        "Effect-wobblywindows" = {
+          "Drag" = 97;
+          "MoveFactor" = 25;
+          "Stiffness" = 1;
+          "WobblynessLevel" = 4;
+        };
+      };
+      plasmarc = {
+        "Wallpapers" = {
+          "usersWallpapers" = builtins.fetchurl {
+            url = "https://github.com/NixOS/nixos-artwork/raw/master/wallpapers/nix-wallpaper-nineish-dark-gray.png";
+            sha256 = "07zl1dlxqh9dav9pibnhr2x1llywwnyphmzcdqaby7dz5js184ly";
+          };
+        };
+      };
+    };
   };
 }

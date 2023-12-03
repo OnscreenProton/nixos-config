@@ -1,7 +1,5 @@
-{ config, lib, pkgs, ... }:
-
 {
-  imports = [ 
-    ./gnome
+  imports = [
+    #./directory-name
   ];
 }

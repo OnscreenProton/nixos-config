@@ -1,24 +1,15 @@
-{ version ? "dev", lib, stdenv, emacs }:
+{ pkgs, nix-doom-emacs, ... }:
 
-stdenv.mkDerivation {
-  pname = "emacs-config";
-  inherit version;
-  src = lib.sourceByRegex ./. [ "config.org" "init.el" ];
+{
+  imports = [ nix-doom-emacs.hmModule ];
 
-  buildInputs = [emacs];
+  programs.doom-emacs = {
+    enable = true;
+    doomPrivateDir = ./doom.d;
 
-  buildPhase = ''
-    cp $src/* .
-    # Tangle org files
-    emacs --batch -Q \
-      -l org \
-      config.org \
-      -f org-babel-tangle
-  '';
-
-  dontUnpack = true;
-
-  installPhase = ''
-    install -D -t $out *.el
-  '';
+    emacsPackagesOverlay = self: super: with pkgs.emacsPackages; {
+      gitignore-mode = git-modes;
+      gitconfig-mode = git-modes;
+    };
+  };
 }

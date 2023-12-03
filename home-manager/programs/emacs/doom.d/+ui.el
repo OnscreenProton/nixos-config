@@ -4,8 +4,8 @@
 ;;       doom-city-lights-brighter-comments t
 ;;       doom-one-light-brighter-comments t)
 
-;; (setq doom-theme 'doom-one-dark)
-(load-theme 'doom-one-dark t)
+;; (setq doom-theme 'doom-one)
+(load-theme 'doom-one t)
 
 (setq evil-emacs-state-cursor `(box ,(doom-color 'violet)))
 
