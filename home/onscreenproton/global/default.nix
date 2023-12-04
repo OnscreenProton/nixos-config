@@ -1,4 +1,7 @@
 { inputs, lib, pkgs, config, outputs, ... }: {
+  imports = [
+    ../features/cli
+  ];
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;
     config = {
