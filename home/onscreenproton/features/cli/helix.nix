@@ -1,5 +1,6 @@
 { config, ... }: {
   home.sessionVariables.COLORTERM = "truecolor";
+  home.sessionVariables.EDITOR = "hx";
   programs.helix = {
     enable = true;
     settings = {

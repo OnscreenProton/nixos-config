@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./git.nix
+    ./helix.nix
   ];
   home.packages = with pkgs; [
     bc
@@ -16,6 +17,6 @@
 
     nil
     nixfmt
-    nix-inspect
-  ]
+    wl-clipboard
+  ];
 }
