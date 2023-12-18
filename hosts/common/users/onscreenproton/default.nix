@@ -7,6 +7,7 @@
       "video"
       "audio"
       "networkmanager"
+      "uinput"
     ];
 
     packages = [ pkgs.home-manager ];

@@ -1,5 +1,5 @@
 { inputs, outputs, config, pkgs, ...}: {
-  imports = [ ../common ];
+  imports = [ ../common ./apps.nix ];
   dconf.settings = {
     "org/gnome/shell" = {
       favorite-apps = [
@@ -20,7 +20,6 @@
         "trayIconsReloaded@selfmade.pl"
         "Vitals@CoreCoding.com"
         "gsconnect@andyholmes.github.io"
-        "dash-to-panel@jderose9.github.com"
         "blur-my-shell@aunetx"
         "desktop-cube@schneegans.github.com"
         "burn-my-windows@schneegans.github.com"
@@ -29,12 +28,18 @@
       ];
     };
     "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-      icon-theme = "Colloid-dark";
-      gtk-theme = "Colloid-Dark";
+      color-scheme = "default";
+      icon-theme = "Colloid-light";
+      gtk-theme = "Colloid-Light";
       enable-hot-corners = false;
     };
-    "org/gnome/mutter" ={
+    "org/gnome/shell/extensions/user-theme" = {
+      name = "Colloid-Light";
+    };
+    "org/gnome/Console" = {
+      theme = "day";
+    };
+    "org/gnome/mutter" = {
       edge-tiling = true;
     };
     "org/gnome/desktop/background" = {
@@ -58,24 +63,17 @@
     "org/gnome/shell/extensions/desktop-cube" = {
         last-first-gap = false;
     };
-    "org/gnome/shell/extensions/user-theme" = {
-      name = "Colloid-Dark";
-    };
-    "org/gnome/shell/extensions/dash-to-panel" = {
-      appicon-margin = 4;
-    };
   };
   home.packages = with pkgs; [
     gnomeExtensions.user-themes
     gnomeExtensions.tray-icons-reloaded
     gnomeExtensions.vitals
     gnomeExtensions.gsconnect
-    gnomeExtensions.dash-to-panel
     gnomeExtensions.blur-my-shell
     gnomeExtensions.desktop-cube
     gnomeExtensions.burn-my-windows
-    gnomeExtensions.fuzzy-app-search
     gnome.gnome-tweaks
+    xdg-desktop-portal-gnome
     colloid-gtk-theme
     colloid-icon-theme
   ];
