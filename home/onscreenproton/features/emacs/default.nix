@@ -1,14 +1,19 @@
-{ pkgs, inputs, ... }:
-{
-  imports = [ inputs.nix-doom-emacs.hmModule ];
-
-  programs.doom-emacs = {
-    enable = true;
-    doomPrivateDir = ./doom.d;
-
-    emacsPackagesOverlay = self: super: with pkgs.emacsPackages; {
-      gitignore-mode = git-modes;
-      gitconfig-mode = git-modes;
-    };
-  };
+{ pkgs, ... }: {
+  home.packages = with pkgs; [
+    binutils
+    (ripgrep.override { withPCRE2 = true; })
+    gnutls
+    fd
+    sqlite
+    editorconfig-core-c
+    ispell
+    unzip
+    imagemagick
+    emacs29-pgtk
+    emacsPackages.vterm
+    emacsPackages.adwaita-dark-theme
+    emacsPackages.nerd-icons
+    python3Minimal
+    python311Packages.pygments
+  ];
 }

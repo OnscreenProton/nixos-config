@@ -10,12 +10,20 @@
     ../common/optional/gnome.nix
     ../common/optional/grub.nix
     ../common/optional/pipewire.nix
+    ../common/optional/gcc.nix
+    ../common/optional/printing.nix
     ../common/users/onscreenproton
   ];
 
   networking = {
     hostName = "nixos";
     useDHCP = lib.mkDefault true;
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [
+        1701 9001 # Weylus
+      ];
+    };
   };
 
   boot = {

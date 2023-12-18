@@ -2,9 +2,12 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
     ./auto-upgrade.nix
+    ./fonts.nix
+    ./gpg.nix
     ./nix.nix
     ./sops.nix
     ./tailscale.nix
+    ./zip.nix
     ./zsh.nix
   ];
 

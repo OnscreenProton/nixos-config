@@ -12,12 +12,6 @@
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Doom emacs flake
-    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
-
-    # Nix Gaming
-    nix-gaming.url = "github:fufexan/nix-gaming";
-
     # SOPS secret managment
     sops-nix = {
       url = "github:mic92/sops-nix";
@@ -68,11 +62,17 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#nixos'
     nixosConfigurations = {
-      nixos = lib.nixosSystem {
+      desktop = lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
           ./hosts/desktop
+        ];
+      };
+      home-server = lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/home-server
         ];
       };
     };
