@@ -5,6 +5,9 @@
     ./hardware-configuration.nix
 
     ../common/global
+    ../common/optional/gnome.nix
+    ../common/optional/grub.nix
+    ../common/users/onscreenproton
   ];
 
   networking = {
