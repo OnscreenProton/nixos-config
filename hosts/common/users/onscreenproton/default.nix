@@ -8,6 +8,7 @@
       "audio"
       "networkmanager"
       "uinput"
+      "docker"
     ];
 
     packages = [ pkgs.home-manager ];
