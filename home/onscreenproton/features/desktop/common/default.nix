@@ -7,6 +7,7 @@
     ./cinny.nix
     ./vscode.nix
     ./setzer.nix
+    ./rustdesk.nix
     ./tuba.nix
     ./rnote.nix
     ./freecad.nix

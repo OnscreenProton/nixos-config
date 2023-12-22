@@ -1,4 +1,4 @@
-{ inputs, config, lib, pkgs, ... }:
+{ inputs, outputs, config, lib, pkgs, ... }:
 
 {
   imports = [
@@ -7,6 +7,7 @@
     ../common/global
     ../common/optional/gnome.nix
     ../common/optional/grub.nix
+    ../common/optional/docker.nix
     ../common/users/onscreenproton
   ];
 
@@ -14,8 +15,9 @@
     hostName = "nixos-server";
     useDHCP = lib.mkDefault true;
     firewall = {
-      enable = true;
+      enable = false;
     };
+    nameservers = [ "129.146.16.52" "129.146.16.52"];
   };
 
   boot = {
@@ -41,8 +43,8 @@
       };
 
       open = false;
-      nvidiaSettings = false;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
     };
 
     opengl = {
@@ -51,6 +53,11 @@
       driSupport32Bit = true;
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    dig
+    sunshine
+  ];
 
   system.stateVersion = "23.05";
 }
