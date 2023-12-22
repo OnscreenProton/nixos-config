@@ -17,7 +17,7 @@
     firewall = {
       enable = false;
     };
-    nameservers = [ "129.146.16.52" "129.146.16.52"];
+    nameservers = [ "129.146.16.52" "129.146.16.52"]; # hehehehaw
   };
 
   boot = {

@@ -18,7 +18,7 @@
     enable = true;
     
     authkeyFile = config.sops.secrets.tailscale_key.path;
-    loginServer = "https://vpn.onsc.us.to";
+    loginServer = "https://vpn.onsc.us.to"; #hehehehaw
     advertiseExitNode = false;
   };
 
