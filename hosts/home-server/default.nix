@@ -9,6 +9,8 @@
     ../common/optional/grub.nix
     ../common/optional/docker.nix
     ../common/users/onscreenproton
+
+    outputs.nixosModules.sunshine
   ];
 
   networking = {
@@ -40,6 +42,9 @@
 
       prime = {
         sync.enable = true;
+
+        nvidiaBusId = "PCI:1:00:0";
+        intelBusId = "PCI:0:02:0";
       };
 
       open = false;
@@ -53,6 +58,10 @@
       driSupport32Bit = true;
     };
   };
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  services.sunshine.enable = true;
 
   environment.systemPackages = with pkgs; [
     dig
