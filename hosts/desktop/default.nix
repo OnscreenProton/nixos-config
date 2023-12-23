@@ -1,9 +1,5 @@
 { pkgs, inputs, lib, config, ... }: {
   imports = [
-    #inputs.hardware.nixosModules.common-cpu-intel
-    #inputs.hardware.nixosModules.common-gpu-nvidia
-    #inputs.hardware.nixosModules.common-pc-ssd
-
     ./hardware-configuration.nix
 
     ../common/global
@@ -13,17 +9,14 @@
     ../common/optional/gcc.nix
     ../common/optional/printing.nix
     ../common/users/onscreenproton
+
+    outputs.nixosModules.sunshine
   ];
 
   networking = {
     hostName = "nixos";
     useDHCP = lib.mkDefault true;
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [
-        1701 9001 # Weylus
-      ];
-    };
+    nameservers = [ "129.146.16.52" "129.146.16.52"]; # hehehehaw
   };
 
   boot = {
@@ -62,6 +55,8 @@
   };
 
   services.xserver.videoDrivers = ["nvidia"];
+
+  services.sunshine.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
