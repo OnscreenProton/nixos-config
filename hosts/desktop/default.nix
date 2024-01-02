@@ -4,6 +4,7 @@
 
     ../common/global
     ../common/optional/gnome.nix
+    #../common/optional/hyprland.nix
     ../common/optional/grub.nix
     ../common/optional/pipewire.nix
     ../common/optional/gcc.nix
@@ -54,6 +55,8 @@
   };
 
   services.xserver.videoDrivers = ["nvidia"];
+
+  environment.variables.NIXOS_OZONE_WL = "1";
 
   sops.secrets = {
     nextcloud-netrc = {
