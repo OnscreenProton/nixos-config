@@ -13,7 +13,12 @@
     userEmail = "onscreenproton@gmail.com";
     extraConfig = {
       init.defaultBranch = "main";
-      gpg.program = "${config.programs.gpg.package}/bin/gpg2";
+      # gpg.program = "${config.programs.gpg.package}/bin/gpg2";
+    };
+    signing = {
+      key = "null";
+      signByDefault = true;
+      gpgPath = "${config.programs.gpg.package}/bin/gpg2";
     };
     lfs.enable = true;
     ignores = [ ".direnv" "result" ];
