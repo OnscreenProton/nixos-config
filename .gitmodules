@@ -1,0 +1,3 @@
+[submodule "pkgs/jerry"]
+	path = pkgs/jerry
+	url = https://github.com/justchokingaround/jerry/
