@@ -1,4 +1,4 @@
-{ pkgs, inputs, lib, config, ... }: {
+{ pkgs, inputs, outputs, lib, config, ... }: {
   imports = [
     ./hardware-configuration.nix
 
@@ -9,14 +9,13 @@
     ../common/optional/gcc.nix
     ../common/optional/printing.nix
     ../common/users/onscreenproton
-
-    outputs.nixosModules.sunshine
   ];
 
   networking = {
     hostName = "nixos";
     useDHCP = lib.mkDefault true;
     nameservers = [ "129.146.16.52" "129.146.16.52"]; # hehehehaw
+    firewall.enable = true;
   };
 
   boot = {
@@ -44,7 +43,7 @@
 
       open = false;
       nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
     opengl = {
       enable = true;
@@ -56,7 +55,15 @@
 
   services.xserver.videoDrivers = ["nvidia"];
 
-  services.sunshine.enable = true;
+  sops.secrets = {
+    nextcloud-netrc = {
+      sopsFile = ../common/secrets.yaml;
+      path = "/home/onscreenproton/.netrc";
+      mode = "0400";
+      owner = config.users.users.onscreenproton.name;
+    };
+  };
+
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

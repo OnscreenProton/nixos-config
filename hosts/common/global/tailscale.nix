@@ -23,6 +23,6 @@
   };
 
   sops.secrets.tailscale_key = {
-    sopsFile = ./secrets.yaml;
+    sopsFile = ../secrets.yaml;
   };
 }
