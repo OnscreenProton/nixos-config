@@ -16,7 +16,7 @@
       # gpg.program = "${config.programs.gpg.package}/bin/gpg2";
     };
     signing = {
-      key = "null";
+      key = "6E7A1E8ED571D3143011B23B8F15EFF5308F9DF2";
       signByDefault = true;
       gpgPath = "${config.programs.gpg.package}/bin/gpg2";
     };
