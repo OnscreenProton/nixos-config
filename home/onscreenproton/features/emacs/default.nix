@@ -9,7 +9,7 @@
     ispell
     unzip
     imagemagick
-    emacs29-pgtk
+    emacs29-gtk3
     emacsPackages.vterm
     emacsPackages.adwaita-dark-theme
     emacsPackages.nerd-icons
