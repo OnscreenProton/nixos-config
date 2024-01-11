@@ -18,3 +18,7 @@
 Maybe some day I'll be a based Suckless user but for now I use normie Gnome.
 
 I used this [starter config](https://github.com/Misterio77/nix-starter-configs). I stole the the [Doom Emacs Config](https://github.com/ztlevi/doom-config/). I also stole a bunch of other snippets/whole parts of config from other people too.
+
+## Todo
+- [ ] Rewrite config to use hosts structure
+- [ ] Rewrite to use modules based config
