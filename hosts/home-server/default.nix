@@ -1,0 +1,72 @@
+{ inputs, outputs, config, lib, pkgs, ... }:
+
+{
+  imports = [
+    ./hardware-configuration.nix
+
+    ../common/global
+    ../common/optional/gnome.nix
+    ../common/optional/grub.nix
+    ../common/optional/docker.nix
+    ../common/users/onscreenproton
+
+    outputs.nixosModules.sunshine
+  ];
+
+  networking = {
+    hostName = "nixos-server";
+    useDHCP = lib.mkDefault true;
+    firewall = {
+      enable = false;
+    };
+    nameservers = [ "129.146.16.52" "129.146.16.52"]; # hehehehaw
+  };
+
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    bootspec.enable = true;
+    kernelParams = [
+      "quiet"
+      "splash"
+    ];
+  };
+
+  hardware = {
+    nvidia = {
+      modesetting.enable = true;
+
+      powerManagement = {
+        enable = false;
+        finegrained = false;
+      };
+
+      prime = {
+        sync.enable = true;
+
+        nvidiaBusId = "PCI:1:00:0";
+        intelBusId = "PCI:0:02:0";
+      };
+
+      open = false;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
+    };
+
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+  };
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  services.sunshine.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    dig
+    sunshine
+  ];
+
+  system.stateVersion = "23.05";
+}
