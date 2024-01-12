@@ -6,18 +6,21 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # Hardware
-    hardware.url = "github:nixos/nixos-hardware";
-
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    hyprland.url = "github:hyprwm/Hyprland";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-23.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # SOPS secret managment
     sops-nix = {
       url = "github:mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Windows Subsystem Linux
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -78,6 +81,15 @@
           ./hosts/home-server
         ];
       };
+
+      # Home-manager is managed within this config
+      wsl = lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/wsl
+          inputs.nixos-wsl.nixosModules.wsl
+        ];
+      };
     };
 
     # Standalone home-manager configuration entrypoint
@@ -88,7 +100,7 @@
         extraSpecialArgs = { inherit inputs outputs; };
         modules = [
           # > Our main home-manager configuration file <
-          ./home/onscreenproton/desktop.nix
+          ./home/onscreenproton/onscreenproton.nix
         ];
       };
     };
