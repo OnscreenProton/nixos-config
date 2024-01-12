@@ -7,7 +7,6 @@
     ./nix.nix
     ./sops.nix
     ./tailscale.nix
-    ./zip.nix
     ./zsh.nix
   ];
 
