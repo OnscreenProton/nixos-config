@@ -3,8 +3,9 @@
     ./hardware-configuration.nix
 
     ../common/global
-    ../common/optional/gnome.nix
-    #../common/optional/hyprland.nix
+    #../common/optional/gnome.nix
+    ../common/optional/kde.nix
+    ../common/optional/plymouth.nix
     ../common/optional/grub.nix
     ../common/optional/pipewire.nix
     ../common/optional/gcc.nix
@@ -14,6 +15,7 @@
 
   networking = {
     hostName = "nixos";
+    networkmanager.enable = true;
     useDHCP = lib.mkDefault true;
     nameservers = [ "129.146.16.52" "129.146.16.52"]; # hehehehaw
     firewall.enable = true;
@@ -27,10 +29,6 @@
       "splash"
       "module_blacklist=i915"
     ];
-  };
-
-  programs = {
-    dconf.enable = true;
   };
 
   hardware = {
@@ -56,7 +54,7 @@
 
   services.xserver.videoDrivers = ["nvidia"];
 
-  environment.variables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   sops.secrets = {
     nextcloud-netrc = {
@@ -65,6 +63,12 @@
       mode = "0400";
       owner = config.users.users.onscreenproton.name;
     };
+  };
+
+  security.pam.services.swaylock = {
+    text = ''
+      auth include login
+    '';
   };
 
 
