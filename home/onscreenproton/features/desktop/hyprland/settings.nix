@@ -1,14 +1,20 @@
 { config, lib, pkgs, ... }:
 
 {
-  wayland.windowManger.hyprland.settings = {
-    "$mod" = "SUPER";
+  wayland.windowManager.hyprland.settings = {
     env = [
-      "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-    ];
+      "TERMINAL,alacritty"
 
-    exec-once = [
-      "swaylock"
+      "__GL_VRR_ALLOWED,1"
+      "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+      "GBM_BACKEDN,nvidia-drm"
+      "LIBVA_DRIVER_NAME,nvidia"
+
+      "XDG_CURRENT_DESKTOP,Hyprland"
+      "XDG_SESSION_DESKTOP,Hyprland"
+      "XDG_SESSION_TYPE,wayland"
+
+      "WLR_NO_HARDWARE_CURSORS,1"
     ];
 
     general = {
@@ -89,6 +95,17 @@
       workspace_swipe = true;
       workspace_swipe_forever = true;
     };
+
+    plugin = {
+      hyconv = {
+        "overview_gappo" = "60";
+        "overview_gappi" = "24";
+        "hotarea_size" = "10";
+        "enable_hotarea" = "1";
+      };
+    };
+
+    exec-once = "~/.config/hypr/scripts/startup";
 
     xwayland.force_zero_scaling = true;
 

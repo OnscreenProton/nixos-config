@@ -16,7 +16,6 @@
       disable-user-extensions = false;
 
       enabled-extensions = [
-        "user-theme@gnome-shell-extensions.gcampax.github.com"
         "trayIconsReloaded@selfmade.pl"
         "Vitals@CoreCoding.com"
         "gsconnect@andyholmes.github.io"
@@ -24,17 +23,11 @@
         "desktop-cube@schneegans.github.com"
         "burn-my-windows@schneegans.github.com"
         "gnome-fuzzy-app-search@Czarlie.gitlab.com"
-        "flypie@schneegans.github.com"
       ];
     };
     "org/gnome/desktop/interface" = {
       color-scheme = "default";
-      icon-theme = "Colloid-light";
-      gtk-theme = "Colloid-Light";
       enable-hot-corners = false;
-    };
-    "org/gnome/shell/extensions/user-theme" = {
-      name = "Colloid-Light";
     };
     "org/gnome/Console" = {
       theme = "day";
@@ -56,6 +49,7 @@
     };
     "org/gnome/desktop/peripherals/mouse" ={
       accel-profile = "flat";
+      speed = "-0.19844357976653693";
     };
     "org/gnome/settings-daemon/plugins/power" = {
       sleep-inactive-ac-type = "nothing";
@@ -65,7 +59,6 @@
     };
   };
   home.packages = with pkgs; [
-    gnomeExtensions.user-themes
     gnomeExtensions.tray-icons-reloaded
     gnomeExtensions.vitals
     gnomeExtensions.gsconnect
@@ -74,7 +67,5 @@
     gnomeExtensions.burn-my-windows
     gnome.gnome-tweaks
     xdg-desktop-portal-gnome
-    colloid-gtk-theme
-    colloid-icon-theme
   ];
 }

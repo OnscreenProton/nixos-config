@@ -1,24 +1,28 @@
-{
+{ pkgs, ... }: {
   imports = [
-    ./discord.nix
-    ./firefox.nix
-    ./vivaldi.nix
-    ./inkscape.nix
-    ./thunderbird.nix
-    ./texstudio.nix
-    ./cinny.nix
-    ./vscode.nix
-    ./setzer.nix
-    ./tuba.nix
-    ./rnote.nix
-    ./freecad.nix
     ./mpv.nix
-    ./mediawriter.nix
-    ./prusa-slicer.nix
-    ./qbittorrent.nix
     ./libreoffice.nix
-    ./bottles.nix
-    ./bitwarden.nix
-    ./xournalpp.nix
   ];
+
+  home.packages = (with pkgs; [
+      alacritty
+      bitwarden
+      bottles
+      cider
+      freecad
+      helvum
+      inkscape
+      mediawriter
+      qbittorrent
+      setzer
+      tuba
+      vscodium
+      xournalpp
+  ]) ++ (with pkgs.unstable; [
+      firefox-bin
+      thunderbird-bin
+      prusa-slicer
+      vesktop
+      r2modman
+  ]);
 }
