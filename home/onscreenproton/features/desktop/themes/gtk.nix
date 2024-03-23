@@ -10,18 +10,18 @@
 
   gtk = {
     enable = true;
-    theme = {
-      package = pkgs.stable.catppuccin-gtk.override {
-        accents = [ "blue" ];
-        size = "standard";
-        variant = "latte";
-      };
-      name = "Catppuccin-Latte-Standard-Blue-dark";
-    };
-    iconTheme = {
-      package = pkgs.gnome.adwaita-icon-theme;
-      name = "Adwaita";
-    };
+    #theme = {
+      #package = pkgs.stable.catppuccin-gtk.override {
+      #  accents = [ "blue" ];
+      #  size = "standard";
+      #  variant = "latte";
+      #};
+      #name = "Catppuccin-Latte-Standard-Blue-dark";
+    #};
+    #iconTheme = {
+    #  package = pkgs.gnome.adwaita-icon-theme;
+    #  name = "Adwaita";
+    #};
     font = {
       name = "Sans";
       size = 11;

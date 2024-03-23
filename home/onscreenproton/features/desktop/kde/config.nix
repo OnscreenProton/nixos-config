@@ -60,7 +60,7 @@
       "kwinrc"."Effect-wobblywindows"."Drag" = 85;
       "kwinrc"."Effect-wobblywindows"."Stiffness" = 10;
       "kwinrc"."Effect-wobblywindows"."WobblynessLevel" = 1;
-      "kscreenlockerrc"."Greeter"."WallpaperPlugin" = "org.kde.potd";
+      #"kscreenlockerrc"."Greeter"."WallpaperPlugin" = "org.kde.potd";
     };
   };
 }
