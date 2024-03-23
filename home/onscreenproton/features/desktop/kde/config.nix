@@ -29,6 +29,7 @@
               General.launchers = [
                 "applications:firefox.desktop"
                 "applications:thunderbird.desktop"
+                "applications:bitwarden.desktop"
                 "applications:emacs.desktop"
                 "applications:org.kde.konsole.desktop"
                 "applications:org.kde.dolphin.desktop"
