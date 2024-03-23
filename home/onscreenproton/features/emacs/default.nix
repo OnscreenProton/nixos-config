@@ -11,7 +11,7 @@
     imagemagick
     emacs29-gtk3
     emacsPackages.vterm
-    emacsPackages.adwaita-dark-theme
+    #emacsPackages.adwaita-dark-theme
     emacsPackages.nerd-icons
     python3Minimal
     python311Packages.pygments

@@ -10,7 +10,6 @@
       lookAndFeel = "org.kde.breeze.desktop";
       cursorTheme = "Bibata-Modern-Classic";
       iconTheme = "Breeze";
-      wallpaper = "${pkgs.libsForQt5.plasma-workspace-wallpapers}/share/wallpapers/summer_1am/contents/images/2560x1440.jpg";
     };
 
     panels = [
@@ -18,6 +17,7 @@
       {
         location = "bottom";
         height = 46;
+        floating = true;
         widgets = [
           {
             name = "org.kde.plasma.kickoff";
@@ -35,13 +35,24 @@
               ];
             };
           }
-          "org.kde.plasma.panelspacer"
           "org.kde.plasma.pager"
+          "org.kde.plasma.panelspacer"
           "org.kde.plasma.systemtray"
+          "org.kde.plasma.notifications"
           "org.kde.plasma.digitalclock"
         ];
       }
     ];
+
+    spectacle.shortcuts = {
+      launch = "Meta+S";
+    };
+
+    shortcuts = {
+      ksmserver = {
+        "Lock Session" = [ "Screensaver" "Meta+Ctrl+Alt+L" ];
+      };
+    };
 
     configFile = {
       "kwinrc"."plugins"."wobblywindowsEnabled" = true;

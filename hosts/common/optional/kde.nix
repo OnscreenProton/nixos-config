@@ -3,9 +3,9 @@
 {
   services.xserver = {
     enable = true;
-    desktopManager.plasma5.enable = true;
+    desktopManager.plasma6.enable = true;
     displayManager = {
-      defaultSession = "plasmawayland";
+      defaultSession = "plasma";
       sddm = {
         enable = true;
         #theme = "aerial-sddm-theme";
