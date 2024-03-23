@@ -19,7 +19,7 @@
       qbittorrent
       setzer
       tuba
-      vscodium
+      vscode
       xournalpp
   ]) ++ (with pkgs.unstable; [
       #firefox-bin
