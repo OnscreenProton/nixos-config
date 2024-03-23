@@ -11,7 +11,7 @@
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.catppuccin-gtk.override {
+      package = pkgs.stable.catppuccin-gtk.override {
         accents = [ "blue" ];
         size = "standard";
         variant = "latte";
