@@ -6,6 +6,10 @@
     ./steam.nix
   ];
   home = {
-    packages = with pkgs; [ gamescope ];
+    packages = with pkgs; [
+      gamescope
+      osu-lazer-bin
+      prismlauncher-qt5
+    ];
   };
 }

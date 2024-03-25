@@ -7,9 +7,10 @@
 
     workspace = {
       clickItemTo = "select";
+      theme = "breeze";
       lookAndFeel = "org.kde.breeze.desktop";
       cursorTheme = "Bibata-Modern-Classic";
-      iconTheme = "Breeze";
+      iconTheme = "Papirus";
     };
 
     panels = [
