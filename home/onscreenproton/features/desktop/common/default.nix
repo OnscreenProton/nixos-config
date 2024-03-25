@@ -5,7 +5,7 @@
     ./libreoffice.nix
   ];
 
-  home.packages = (with pkgs; [
+  home.packages = with pkgs; [
       alacritty
       bitwarden
       bottles
@@ -16,18 +16,13 @@
       inkscape
       mediawriter
       mumble
+      prusa-slicer
       qbittorrent
       setzer
+      thunderbird-bin
       tuba
+      vesktop
       vscode
       xournalpp
-  ]) ++ (with pkgs.unstable; [
-      #firefox-bin
-      thunderbird-bin
-      prusa-slicer
-      vesktop
-      r2modman
-      sidequest
-      alvr
-  ]);
+  ];
 }

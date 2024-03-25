@@ -5,7 +5,7 @@
     ./tectonic.nix
     ./zsh.nix
   ];
-  home.packages = (with pkgs; [
+  home.packages = with pkgs; [
     bc
     bottom
     ncdu
@@ -20,7 +20,7 @@
     nil
     nixfmt
     wl-clipboard
-  ]) ++ (with pkgs.unstable; [
-      inshellisense
-  ]);
+
+    tectonic
+  ];
 }

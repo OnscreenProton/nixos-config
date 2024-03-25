@@ -3,7 +3,7 @@
   hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
-    package = pkgs.unstable.pipewire;
+    package = pkgs.pipewire;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;

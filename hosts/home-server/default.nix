@@ -8,16 +8,17 @@
     ../common/optional/gnome.nix
     ../common/optional/grub.nix
     ../common/optional/docker.nix
+    ../common/optional/vscode-server.nix
     ../common/users/onscreenproton
-
-    outputs.nixosModules.sunshine
   ];
 
   networking = {
     hostName = "nixos-server";
     useDHCP = lib.mkDefault true;
     firewall = {
-      enable = false;
+      enable = true;
+      allowPing = true;
+      allowedTCPPorts = [ 22 80 443 548 ];
     };
     nameservers = [ "129.146.16.52" "129.146.16.52"]; # hehehehaw
   };
@@ -31,6 +32,23 @@
     ];
   };
 
+  systemd.targets.sleep.enable = false;
+  systemd.targets.suspend.enable = false;
+  systemd.targets.hibernate.enable = false;
+  systemd.targets.hybrid-sleep.enable = false;
+
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (action.id == "org.freedesktop.login1.suspend" ||
+        action.id == "org.freedesktop.login1.suspend-multiple-sessions" ||
+        action.id == "org.freedesktop.login1.hibernate" ||
+        action.id == "org.freedesktop.login1.hibernate-multiple-sessions")
+      {
+        return polkit.Result.NO;
+      }
+    });
+  '';
+  
   hardware = {
     nvidia = {
       modesetting.enable = true;
@@ -49,7 +67,7 @@
 
       open = false;
       nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
 
     opengl = {
@@ -57,15 +75,51 @@
       driSupport = true;
       driSupport32Bit = true;
     };
-  };
+  }; 
 
+  services.logind.lidSwitchExternalPower = "ignore";
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  services.sunshine.enable = true;
+  services.openssh = {
+    enable = true;
 
-  environment.systemPackages = with pkgs; [
-    dig
-    sunshine
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      PermitRootLogin = false;
+    };
+  };
+
+  services.netatalk = {
+    enable = true;
+
+    settings = {
+      onsc-time-machine = {
+        "time machine" = "yes";
+        path = "/hdd/time-machine";
+        "valid users" = "onscreenproton";
+      };
+    };
+  };
+  
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+
+    publish = {
+      enable = true;
+      userServices = true;
+    };
+  };
+
+  services.fail2ban = {
+    enable = true;
+    maxretry = 5;
+    bantime = "24h";
+  };
+
+  users.users."onscreenproton".openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFyLuBYz8glRYmVD0ZKC4CBdh+qks0zVggXpaXPRaHxZ user"
   ];
 
   system.stateVersion = "23.05";
