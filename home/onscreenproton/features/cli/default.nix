@@ -2,7 +2,6 @@
   imports = [
     ./git.nix
     ./helix.nix
-    ./tectonic.nix
     ./zsh.nix
   ];
   home.packages = with pkgs; [
