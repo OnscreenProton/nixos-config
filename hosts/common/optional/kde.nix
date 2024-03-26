@@ -9,7 +9,7 @@
         sddm.enable = true;
       };
     };
-    plasma6.enable = true;
+    desktopManager.plasma6.enable = true;
   };
 
   programs.dconf.enable = true;

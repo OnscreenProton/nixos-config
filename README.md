@@ -4,20 +4,18 @@
 # My NixOS Config
 
 > [!CAUTION]
-> Do not use this configuration unless you want to suffer though my lack of knowledge of Nix (the language) and NixOS. (I think) My config is very janky and still needs polishing.
+> Do not use this configuration unless you want to suffer though my lack of knowledge of Nix (the language) and NixOS. This config is likely poorly designed and can be significantly improved
 
 | Type           | Program      |
 | :------------- | :----------: |
 | Editor         | [Doom Emacs](https://github.com/doomemacs/doomemacs)/[VSCode](https://code.visualstudio.com/) |
-| DE             | [Gnome](https://www.gnome.org/) |
+| DE             | [KDE Plasma 6](https://www.kde.org/plasma-desktop) |
 | Shell          | [ZSH](https://www.zsh.org/) |
 | Browser        | [Firefox](https://www.mozilla.org/en-US/firefox/new/) |
 
+As of now, I am using plasma6.
 
-
-Maybe some day I'll be a based Suckless user but for now I use normie Gnome.
-
-I used this [starter config](https://github.com/Misterio77/nix-starter-configs). I stole the the [Doom Emacs Config](https://github.com/ztlevi/doom-config/). I also stole a bunch of other snippets/whole parts of config from other people too.
+I used this [starter config](https://github.com/Misterio77/nix-starter-configs).
 
 ## Todo
 - [ ] Rewrite config to use hosts structure

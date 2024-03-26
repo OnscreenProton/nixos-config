@@ -9,7 +9,7 @@
       };
       Service = {
         Type = "simple";
-        ExecStart = "${pkgs.nextcloud-client}/bin/nextcloudcmd -h -n --path /org /home/onscreenproton/Documents/org https://nextcloud.local.onsc.us.to";
+        ExecStart = "${pkgs.nextcloud-client}/bin/nextcloudcmd -h -n --path / /home/onscreenproton/Documents/Nextcloud https://nextcloud.local.onsc.us.to";
         TimeoutStopSec = "180";
         KillMode = "process";
         KillSignal = "SIGINT";
