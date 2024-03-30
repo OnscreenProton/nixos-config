@@ -56,15 +56,6 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  sops.secrets = {
-    nextcloud-netrc = {
-      sopsFile = ../common/secrets.yaml;
-      path = "/home/onscreenproton/.netrc";
-      mode = "0400";
-      owner = config.users.users.onscreenproton.name;
-    };
-  };
-
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
 }
