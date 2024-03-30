@@ -16,6 +16,7 @@
       inkscape
       mediawriter
       mumble
+      planify
       prusa-slicer
       qbittorrent
       setzer

@@ -2,15 +2,17 @@
 
 {
   imports = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
+
+  home.packages = with pkgs; [
+    bibata-cursors
+  ];
+
   programs.plasma = {
     enable = true;
 
     workspace = {
       clickItemTo = "select";
-      theme = "breeze";
-      lookAndFeel = "org.kde.breeze.desktop";
       cursorTheme = "Bibata-Modern-Classic";
-      iconTheme = "Papirus";
     };
 
     panels = [
