@@ -59,10 +59,10 @@
     };
 
     configFile = {
-      "kwinrc"."plugins"."wobblywindowsEnabled" = true;
-      "kwinrc"."Effect-wobblywindows"."Drag" = 85;
-      "kwinrc"."Effect-wobblywindows"."Stiffness" = 10;
-      "kwinrc"."Effect-wobblywindows"."WobblynessLevel" = 1;
+      "kwinrc"."plugins"."wobblywindowsEnabled".value = true;
+      "kwinrc"."Effect-wobblywindows"."Drag".value = 85;
+      "kwinrc"."Effect-wobblywindows"."Stiffness".value = 10;
+      "kwinrc"."Effect-wobblywindows"."WobblynessLevel".value = 1;
     };
   };
 }

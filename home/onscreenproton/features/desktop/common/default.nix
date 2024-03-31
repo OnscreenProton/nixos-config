@@ -6,14 +6,12 @@
   ];
 
   home.packages = with pkgs; [
-      alacritty
       bitwarden
       blender
       bottles
       cider
       freecad
       gnome.gnome-disk-utility
-      helvum
       inkscape
       nextcloud-client
       mediawriter
@@ -21,9 +19,7 @@
       planify
       prusa-slicer
       qbittorrent
-      setzer
       thunderbird-bin
-      tuba
       vesktop
       vscode
       xournalpp
