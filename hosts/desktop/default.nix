@@ -3,7 +3,6 @@
     ./hardware-configuration.nix
 
     ../common/global
-    #../common/optional/gnome.nix
     ../common/optional/kde.nix
     ../common/optional/plymouth.nix
     ../common/optional/grub.nix
@@ -11,6 +10,7 @@
     ../common/optional/gcc.nix
     ../common/optional/printing.nix
     ../common/users/onscreenproton
+
   ];
 
   networking = {
