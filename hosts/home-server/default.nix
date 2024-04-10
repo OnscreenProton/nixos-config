@@ -122,5 +122,9 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFyLuBYz8glRYmVD0ZKC4CBdh+qks0zVggXpaXPRaHxZ user"
   ];
 
+  environment.systemPackages = with pkgs; [
+    nvidia-container-toolkit
+  ];
+
   system.stateVersion = "23.05";
 }
