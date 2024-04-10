@@ -1,6 +1,10 @@
 { pkgs, ... }: {
-  virtualisation.docker = {
-    enable = true;
+  virtualisation = {
+    docker = {
+      enable = true;
+      package = pkgs.docker;
+    };
+    containers.cdi.dynamic.nvidia.enable = true
   };
   environment.systemPackages = with pkgs; [
     docker-buildx
