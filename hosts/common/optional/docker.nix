@@ -2,7 +2,7 @@
   virtualisation = {
     docker = {
       enable = true;
-      package = pkgs.docker;
+      package = pkgs.docker_25;
     };
     containers.cdi.dynamic.nvidia.enable = true;
   };
