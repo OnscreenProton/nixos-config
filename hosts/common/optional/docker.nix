@@ -3,6 +3,7 @@
     docker = {
       enable = true;
       package = pkgs.docker_25;
+      enableNvidia = true;
     };
     containers.cdi.dynamic.nvidia.enable = true;
   };
