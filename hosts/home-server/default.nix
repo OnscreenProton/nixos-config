@@ -5,11 +5,13 @@
     ./hardware-configuration.nix
 
     ../common/global
+    ../common/optional/forgejo.nix
     ../common/optional/gnome.nix
     ../common/optional/grub.nix
     ../common/optional/docker.nix
     ../common/optional/vscode-server.nix
     ../common/users/onscreenproton
+    ../common/users/git
   ];
 
   networking = {
