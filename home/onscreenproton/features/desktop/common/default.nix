@@ -16,6 +16,7 @@
       nextcloud-client
       mediawriter
       mumble
+      obsidian
       planify
       prusa-slicer
       qbittorrent

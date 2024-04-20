@@ -34,6 +34,9 @@
                 "applications:thunderbird.desktop"
                 "applications:bitwarden.desktop"
                 "applications:emacs.desktop"
+                "applications:obsidian.desktop"
+                "applications:cider.desktop"
+                "applications:steam.desktop"
                 "applications:org.kde.konsole.desktop"
                 "applications:org.kde.dolphin.desktop"
               ];
