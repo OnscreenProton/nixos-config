@@ -12,6 +12,7 @@
       cider
       freecad
       gnome.gnome-disk-utility
+      helvum
       inkscape
       nextcloud-client
       mediawriter
