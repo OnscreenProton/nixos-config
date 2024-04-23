@@ -9,6 +9,7 @@
     ../common/optional/pipewire.nix
     ../common/optional/gcc.nix
     ../common/optional/printing.nix
+    ../common/optional/sunshine.nix
     ../common/users/onscreenproton
 
   ];
