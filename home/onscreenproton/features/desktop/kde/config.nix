@@ -13,6 +13,7 @@
     workspace = {
       clickItemTo = "select";
       cursorTheme = "Bibata-Modern-Classic";
+      wallpaper = "/home/onscreenproton/Pictures/blackhole.png";
     };
 
     panels = [

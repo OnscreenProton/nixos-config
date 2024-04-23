@@ -5,6 +5,7 @@
     gnutls
     fd
     sqlite
+    marksman
     editorconfig-core-c
     ispell
     unzip
