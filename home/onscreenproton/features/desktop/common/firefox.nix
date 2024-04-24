@@ -63,10 +63,6 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/fastforwardteam/latest.xpi";
           installation_mode = "force_installed";
         };
-        "languagetool-webextension@languagetool.org" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/languagetool/latest.xpi";
-          installation_mode = "force_installed";
-        };
         "leechblockng@proginosko.com" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/leechblock-ng/latest.xpi";
           installation_mode = "force_installed";
@@ -85,6 +81,14 @@
         };
         "{c607c8df-14a7-4f28-894f-29e8722976af}" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/temporary-containers/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "{6b733b82-9261-47ee-a595-2dda294a4d08}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/yomitan/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "{aecec67f-0d10-4fa7-b7c7-609a2db280cf}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/violentmonkey/latest.xpi";
           installation_mode = "force_installed";
         };
       };
@@ -306,12 +310,5 @@
         "layout.word_select.eat_space_to_next_word" = lock-false;
       };
     };
-
-    #profiles."onscreenproton" = {
-    #  userChrome = builtins.readFile(pkgs.fetchurl {
-    #    url = "https://github.com/OnscreenProton/firefox-css/raw/main/userChrome.css";
-    #    sha256 = "sha256-zlC8fxcF+tDSipQPJf84zoUPwF7ap0BuSCW20kSg9k8";
-    #  });
-    #};
   };
 }

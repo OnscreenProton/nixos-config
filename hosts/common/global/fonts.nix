@@ -8,5 +8,6 @@
     overpass
     julia-mono
     ibm-plex
+    noto-fonts-cjk-sans
   ];
 }

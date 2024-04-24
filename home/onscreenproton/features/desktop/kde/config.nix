@@ -36,6 +36,7 @@
                 "applications:bitwarden.desktop"
                 "applications:emacs.desktop"
                 "applications:obsidian.desktop"
+                "applications:anki.desktop"
                 "applications:cider.desktop"
                 "applications:steam.desktop"
                 "applications:org.kde.konsole.desktop"
