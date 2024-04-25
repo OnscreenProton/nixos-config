@@ -15,6 +15,7 @@
     gnome.gnome-disk-utility
     helvum
     inkscape
+    krita
     nextcloud-client
     mediawriter
     mumble

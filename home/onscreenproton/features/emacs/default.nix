@@ -10,7 +10,7 @@
     ispell
     unzip
     imagemagick
-    emacs29-gtk3
+    emacs29-pgtk
     emacsPackages.vterm
     emacsPackages.nerd-icons
     libvterm
