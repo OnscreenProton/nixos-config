@@ -120,6 +120,31 @@
     bantime = "24h";
   };
 
+  services.samba = {
+  	enable = true;
+  	securityType = "user";
+  	openFirewall = true;
+  	shares = {
+  	  private = {
+  		path = "/hdd/smb";
+  		browseable = "yes";
+  		"read only" = "no";
+  		"guest ok" = "no";
+  		"create mask" = "0644";
+  		"directory mask" = "0755";
+  	  };
+  	};
+  };
+
+  users.users.smb_user = {
+  	isNormalUser = true;
+  	createHome = false;
+  };
+
+  environment.systemPackages = [
+  	pkgs.borgbackup
+  ];
+
   users.users."onscreenproton".openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFyLuBYz8glRYmVD0ZKC4CBdh+qks0zVggXpaXPRaHxZ user"
   ];
